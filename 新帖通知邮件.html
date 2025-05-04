@@ -1,61 +1,84 @@
-﻿<html>
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style type="text/css">
-    
-     .footer {
-        background: #e8ecf3;
-     }
+        /* 设置页脚的背景色 */
+        .footer {
+            background: #e8ecf3; /* 页脚的背景色为浅灰色 */
+        }
     </style>
 </head>
-</html>
-
 <body style="font-family: 'Open Sans', sans-serif; background: #f1f1f1; color: #426799; margin: 0; padding: 0;">
+    <!-- 卡片容器，设置卡片外观和内部填充 -->
     <div class="card-container" style="width: 100%; background: #f1f1f1; text-align: left; margin: 0 auto; padding-top: 20px; padding-bottom: 20px;">
 
+        <!-- 卡片顶部的内容：展示Logo和标题 -->
         <div style="text-align: center; padding-bottom:20px;">
             <p>
+                <!-- 显示Logo，设置大小和居中显示 -->
                 <img src="https://imgdisk.exploretime.top/photo/logoup/logo1.png" style="width: 45px; height: 50px; margin: 0 auto; display: block;">
             </p>
+            <!-- 显示网站名称“ExploreTime”，并加粗 -->
             <p style="color: #000; font-size: 18px; font-weight: bold;">ExploreTime</p>
         </div>
 
-        <div class="card-body" style="width: 80%; max-width: 720px; margin: 0 auto; background: #fff; border-radius: 5px; border: 1px solid #eee; overflow: hidden; ">
+        <!-- 卡片主体部分 -->
+        <div class="card-body" style="width: 80%; max-width: 720px; margin: 0 auto; background: #fff; border-radius: 5px; border: 1px solid #eee; overflow: hidden;">
+            <!-- 卡片标题部分 -->
             <h1 class="card-title" style="color:#000; font-size:24px; font-weight:normal; padding: 20px 40px; margin:0;">
                 有新帖！
             </h1>
+            
+            <!-- 邮件正文部分 -->
             <div class="card-postContent" style="background:#fff; padding:20px 32px 40px; color:#6e6e6e; font-size:13px; line-height:24px;">
+                <!-- 打招呼语，显示用户名 -->
                 <p>{!! $user->display_name !!}, 您好!</p>
+
+                <!-- 显示用户关注的主题，带有链接 -->
                 <p>
                     您关注的主题：<a href="{!! $url->to('forum')->base() !!}/d/{!! $blueprint->post->discussion_id !!}" target="_blank" style="color: #3798e8; text-decoration: none;">{!! $blueprint->post->discussion->title !!}</a>
                     <br>
                 </p>
+                
+                <!-- 显示帖子回复的用户信息 -->
                 <p>
                     {!! $blueprint->post->user->display_name !!} 回了个帖子:
                     <br>
                 </p>
+                
+                <!-- 显示回复内容，最多显示两行，超出隐藏 -->
                 <div class="card-replyContent" style="color:#6e6e6e; padding:10px 20px; background:#f8f8f8; margin:0; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; max-height: 100px;">
                     {!! $blueprint->post->formatContent() !!}
                 </div>
+
+                <!-- 提供查看完整内容的链接 -->
                 <p>
                     您可以点击
                     <a href="{!! $url->to('forum')->base() !!}/d/{!! $blueprint->post->discussion_id !!}/{!! $blueprint->post->number !!}" target="_blank" style="color: #3798e8; text-decoration: none;">查看完整内容</a>
                 </p>
 
+                <!-- 提示信息，关于邮件的自动发送及取消订阅 -->
                 <p>除非您取消收藏这个主题，否则主题下一有新帖发出，您就会收到邮件通知。(此邮件由系统自动发出, 请勿回复。如有打扰，请见谅。)</p>
                 <p></p>
                 <p></p>
             </div>
+
+            <!-- 页脚部分 -->
             <div class="footer" style="margin: 10px;">
+                <!-- 页脚显示社区链接和网址 -->
                 <p class="card-footer" style="color:#6e6e6e; text-align:right; padding:10px 32px; font-size:13px; line-height:24px;">
-                    邮件发自：<a href="{{ $url->to('forum')->base() }}" style="color: #3798e8;	text-decoration: none;">探索社区</a>
+                    邮件发自：<a href="{{ $url->to('forum')->base() }}" style="color: #3798e8; text-decoration: none;">探索社区</a>
                     <br>
-                    网址：<a href="{{ $url->to('forum')->base() }}" style="color: #3798e8;	text-decoration: none;">exploretime.top</a>
+                    网址：<a href="{{ $url->to('forum')->base() }}" style="color: #3798e8; text-decoration: none;">exploretime.top</a>
                 </p>
             </div>
         </div>
 
-        <div style="color: #6e6e6e; text-align: center; font-size: 13px; line-height: 24px; padding-top:20px;">希望你在这里度过愉快的时光！</div>
+        <!-- 邮件的底部提示信息 -->
+        <div style="color: #6e6e6e; text-align: center; font-size: 13px; line-height: 24px; padding-top:20px;">
+            希望你在这里度过愉快的时光！
+        </div>
 
     </div>
 </body>
+</html>
