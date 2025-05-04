@@ -1,0 +1,63 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+    
+     .footer {
+        background: #e8ecf3;
+     }
+    </style>
+</head>
+</html>
+
+<body style="font-family: 'Open Sans', sans-serif; background: #f1f1f1; color: #426799; margin: 0; padding: 0;">
+    <div class="card-container" style="width: 100%; background: #f1f1f1; text-align: left; margin: 0 auto; padding-top: 20px; padding-bottom: 20px;">
+
+        <div style="text-align: center; padding-bottom:20px;">
+            <p>
+                <img src="https://imgdisk.exploretime.top/photo/logoup/logo1.png" style="width: 45px; height: 50px; margin: 0 auto; display: block;">
+            </p>
+            <p style="color: #000; font-size: 18px; font-weight: bold;">ExploreTime</p>
+        </div>
+
+        <div class="card-body" style="width: 80%; max-width: 720px; margin: 0 auto; background: #fff; border-radius: 5px; border: 1px solid #eee; overflow: hidden; ">
+            <h1 class="card-title" style="color:#000; font-size:24px; font-weight:normal; padding: 20px 40px; margin:0;">
+                有新帖！
+            </h1>
+            <div class="card-postContent" style="background:#fff; padding:20px 32px 40px; color:#6e6e6e; font-size:13px; line-height:24px;">
+                <p>{!! $user->display_name !!}!, 您好!</p>
+                <p>
+                    您在<a href="{!! $url->to('forum')->base() !!}/d/{!! $blueprint->post->discussion_id !!}/{!! $blueprint->post->number !!}" target="_blank" style="color: {{ $settings->get('theme_primary_color') }};	text-decoration: none;">《{!! $blueprint->post->discussion->title !!}》(#{!! $blueprint->post->number !!}楼)</a>的发言:
+                    <br>
+                </p>
+                <div class="card-replyContent" style="color:#6e6e6e; padding:10px 20px; background:#f8f8f8; margin:0; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; max-height: 100px;">
+                    {!! $blueprint->post->formatContent() !!}
+                </div>
+                <p>
+                    {!! $blueprint->reply->user->username !!} 回复了您:
+                    <br>
+                </p>
+                <div class="card-replyContent" style="color:#6e6e6e; padding:10px 20px; background:#f8f8f8; margin:0; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; max-height: 100px;">
+                    {!! $blueprint->reply->formatContent() !!}
+                </div>
+                您可以点击
+                <a href="{!! $url->to('forum')->base() !!}/d/{!! $blueprint->post->discussion_id !!}/{!! $blueprint->post->number !!}" target="_blank" style="color: #3798e8; text-decoration: none;">查看完整内容</a>
+                </p>
+
+                <p>除非您取消收藏这个主题，否则主题下一有新帖发出，您就会收到邮件通知。(此邮件由系统自动发出, 请勿回复。如有打扰，请见谅。)</p>
+                <p></p>
+                <p></p>
+            </div>
+            <div class="footer" style="margin: 10px;">
+                <p class="card-footer" style="color:#6e6e6e; text-align:right; padding:10px 32px; font-size:13px; line-height:24px;">
+                    邮件发自：<a href="{{ $url->to('forum')->base() }}" style="color: #3798e8;	text-decoration: none;">探索社区</a>
+                    <br>
+                    网址：<a href="{{ $url->to('forum')->base() }}" style="color: #3798e8;	text-decoration: none;">exploretime.top</a>
+                </p>
+            </div>
+        </div>
+
+        <div style="color: #6e6e6e; text-align: center; font-size: 13px; line-height: 24px; padding-top:20px;">希望你在这里度过愉快的时光！</div>
+
+    </div>
+</body>
