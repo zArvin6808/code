@@ -1,63 +1,87 @@
-﻿<html>
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style type="text/css">
-    
-     .footer {
-        background: #e8ecf3;
-     }
+        /* 设置页脚的背景色 */
+        .footer {
+            background: #e8ecf3; /* 页脚背景色为浅灰色 */
+        }
     </style>
 </head>
-</html>
-
 <body style="font-family: 'Open Sans', sans-serif; background: #f1f1f1; color: #426799; margin: 0; padding: 0;">
+    <!-- 卡片容器：整个邮件的外部容器，设定宽度、背景色、内外边距以及文本对齐方式 -->
     <div class="card-container" style="width: 100%; background: #f1f1f1; text-align: left; margin: 0 auto; padding-top: 20px; padding-bottom: 20px;">
 
+        <!-- 卡片顶部内容，显示 Logo 和站点名称 -->
         <div style="text-align: center; padding-bottom:20px;">
             <p>
+                <!-- Logo 图片，设置大小并确保居中显示 -->
                 <img src="https://imgdisk.exploretime.top/photo/logoup/logo1.png" style="width: 45px; height: 50px; margin: 0 auto; display: block;">
             </p>
+            <!-- 网站名称 "ExploreTime"，加粗显示 -->
             <p style="color: #000; font-size: 18px; font-weight: bold;">ExploreTime</p>
         </div>
 
-        <div class="card-body" style="width: 80%; max-width: 720px; margin: 0 auto; background: #fff; border-radius: 5px; border: 1px solid #eee; overflow: hidden; ">
+        <!-- 卡片主体内容区域，展示邮件的主要内容 -->
+        <div class="card-body" style="width: 80%; max-width: 720px; margin: 0 auto; background: #fff; border-radius: 5px; border: 1px solid #eee; overflow: hidden;">
+            <!-- 标题部分：显示“有人回复你！” -->
             <h1 class="card-title" style="color:#000; font-size:24px; font-weight:normal; padding: 20px 40px; margin:0;">
                 有人回复你！
             </h1>
+            
+            <!-- 邮件正文内容，显示具体的回复提醒信息 -->
             <div class="card-postContent" style="background:#fff; padding:20px 32px 40px; color:#6e6e6e; font-size:13px; line-height:24px;">
+                <!-- 打招呼语：显示收件人的用户名 -->
                 <p>{!! $user->display_name !!}!, 您好!</p>
+
+                <!-- 显示用户在讨论中的发言内容，并提供点击链接查看该发言 -->
                 <p>
-                    您在<a href="{!! $url->to('forum')->base() !!}/d/{!! $blueprint->post->discussion_id !!}/{!! $blueprint->post->number !!}" target="_blank" style="color: {{ $settings->get('theme_primary_color') }};	text-decoration: none;">《{!! $blueprint->post->discussion->title !!}》(#{!! $blueprint->post->number !!}楼)</a>的发言:
+                    您在<a href="{!! $url->to('forum')->base() !!}/d/{!! $blueprint->post->discussion_id !!}/{!! $blueprint->post->number !!}" target="_blank" style="color: {{ $settings->get('theme_primary_color') }}; text-decoration: none;">《{!! $blueprint->post->discussion->title !!}》(#{!! $blueprint->post->number !!}楼)</a>的发言:
                     <br>
                 </p>
                 <div class="card-replyContent" style="color:#6e6e6e; padding:10px 20px; background:#f8f8f8; margin:0; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; max-height: 100px;">
+                    <!-- 限制显示两行的发言内容 -->
                     {!! $blueprint->post->formatContent() !!}
                 </div>
+                
+                <!-- 显示回复者的内容并提供查看回复的链接 -->
                 <p>
                     {!! $blueprint->reply->user->username !!} 回复了您:
                     <br>
                 </p>
                 <div class="card-replyContent" style="color:#6e6e6e; padding:10px 20px; background:#f8f8f8; margin:0; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; max-height: 100px;">
+                    <!-- 限制显示两行的回复内容 -->
                     {!! $blueprint->reply->formatContent() !!}
                 </div>
+                
+                <!-- 提供查看完整回复内容的链接 -->
                 您可以点击
                 <a href="{!! $url->to('forum')->base() !!}/d/{!! $blueprint->post->discussion_id !!}/{!! $blueprint->post->number !!}" target="_blank" style="color: #3798e8; text-decoration: none;">查看完整内容</a>
                 </p>
 
+                <!-- 提示用户，除非取消收藏主题，否则将继续接收新帖通知 -->
                 <p>除非您取消收藏这个主题，否则主题下一有新帖发出，您就会收到邮件通知。(此邮件由系统自动发出, 请勿回复。如有打扰，请见谅。)</p>
                 <p></p>
                 <p></p>
             </div>
+            
+            <!-- 页脚部分，显示邮件的来源和社区网址 -->
             <div class="footer" style="margin: 10px;">
                 <p class="card-footer" style="color:#6e6e6e; text-align:right; padding:10px 32px; font-size:13px; line-height:24px;">
-                    邮件发自：<a href="{{ $url->to('forum')->base() }}" style="color: #3798e8;	text-decoration: none;">探索社区</a>
+                    <!-- 显示邮件来源链接，跳转到探索社区 -->
+                    邮件发自：<a href="{{ $url->to('forum')->base() }}" style="color: #3798e8; text-decoration: none;">探索社区</a>
                     <br>
-                    网址：<a href="{{ $url->to('forum')->base() }}" style="color: #3798e8;	text-decoration: none;">exploretime.top</a>
+                    <!-- 显示社区网址链接 -->
+                    网址：<a href="{{ $url->to('forum')->base() }}" style="color: #3798e8; text-decoration: none;">exploretime.top</a>
                 </p>
             </div>
         </div>
 
-        <div style="color: #6e6e6e; text-align: center; font-size: 13px; line-height: 24px; padding-top:20px;">希望你在这里度过愉快的时光！</div>
+        <!-- 邮件底部提示信息，感谢用户并鼓励他们愉快互动 -->
+        <div style="color: #6e6e6e; text-align: center; font-size: 13px; line-height: 24px; padding-top:20px;">
+            希望你在这里度过愉快的时光！
+        </div>
 
     </div>
 </body>
+</html>
