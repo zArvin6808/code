@@ -1,0 +1,74 @@
+/* 设置整个页面背景 */
+body {
+    background: linear-gradient(to bottom, #0f121b 0%, #111520 70%, #172238 100%);
+    background-color: #11141d;
+    height: 100vh;
+    margin: 0;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.line {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(0, 123, 255, 0.5)); /* 白色到蓝色的线条 */
+    animation: moveLine 3s linear infinite;
+}
+
+@keyframes moveLine {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* 默认状态下的标题颜色 */
+h1, h2, h3, h4, h5, h6 {
+    color: #485b79!important; /* 强制设置标题颜色 */
+    font-weight: bold; /* 设置标题的字体粗细 */
+}
+/* 默认状态下每个主题条目的背景 */
+.DiscussionListItem {
+    background-color: rgba(31, 31, 31, 0); /* 完全透明背景 */
+    color: #d1d1d1; /* 文字颜色设置为浅灰 */
+    padding: 20px; /* 增加内边距使内容更为突出 */
+    margin-bottom: 12px; /* 增加条目之间的间距 */
+    border: none; /* 移除边框 */
+    border-radius: 8px; /* 圆角 */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease; /* 添加过渡效果 */
+}
+
+/* 悬停状态下的主题条目 */
+.DiscussionListItem:hover {
+    background-color: rgba(19, 30, 50, 0.3); /* 透明蓝色背景，透明度50% */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* 稍微加深阴影效果 */
+}
+
+/* 悬停时标题部分文字颜色 */
+.DiscussionListItem:hover .DiscussionListItem-title {
+    color: #b1cfeb!important; /* 悬停时标题文字的蓝色 */
+}
+
+/* 主题条目中帖子的简介部分 */
+.DiscussionListItem .DiscussionListItem-excerpt {
+    color: #34455f!important; /* 默认简介文字颜色为浅灰 */
+    font-size: 14px;
+}
+
+/* 悬停时简介部分文字的颜色 */
+.DiscussionListItem:hover .DiscussionListItem-excerpt {
+    color: #ffffff; /* 悬停时简介文字颜色变为白色 */
+}
+
+/* 主题条目中作者和时间的部分 */
+.DiscussionListItem .DiscussionListItem-meta {
+    color: #999999; /* 默认作者和时间文字颜色 */
+}
+
+/* 悬停时作者和时间的文字颜色 */
+.DiscussionListItem:hover .DiscussionListItem-meta {
+    color: #d1d1d1; /* 悬停时作者和时间文字颜色变为浅灰色 */
+}
