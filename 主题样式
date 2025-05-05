@@ -1,0 +1,176 @@
+/* 设置整个页面的背景色 */
+body {
+    background-color: #fff;  /* 设置页面背景为白色 */
+}
+
+/* 取消横幅的关闭按钮 */
+.Hero-close {
+    display: none;  /* 隐藏关闭按钮 */
+}
+
+
+
+/* 设置 WelcomeHero 组件背景 */
+.WelcomeHero {
+    background-image: url('https://imgdisk.exploretime.top/photo/black.jpg');  /* 设置背景图片 */
+    background-position: center center;  /* 背景图片水平和垂直居中 */
+    background-repeat: no-repeat;       /* 不重复背景图片 */
+    background-size: cover;             /* 背景图片覆盖容器 */
+}
+
+/* 表格样式 */
+table {
+    table-layout: fixed;         /* 固定表格布局 */
+    padding: 0;                  /* 去除表格内边距 */
+    word-break: break-all;       /* 自动换行 */
+    border-collapse: collapse;   /* 合并表格边框 */
+    margin: 0.8em 0;             /* 表格上下外边距 */
+    width: 100%;                 /* 表格宽度为 100% */
+}
+
+table tr {
+    border: 1px solid #dfe2e5;   /* 设置表格行的边框 */
+    margin: 0;                   /* 去除行间距 */
+    padding: 0;                  /* 去除单元格内边距 */
+}
+
+table tr:nth-child(2n), thead {
+    background-color: #f8f8f8;  /* 设置偶数行和表头的背景颜色 */
+}
+
+table th {
+    font-weight: bold;           /* 设置表头字体加粗 */
+    border: 1px solid #dfe2e5;   /* 设置表头边框 */
+    border-bottom: 0;            /* 去掉表头底部边框 */
+    margin: 0;                   /* 去除单元格外边距 */
+    padding: 6px 13px;           /* 设置表头单元格内边距 */
+    width: auto !important;      /* 强制设置宽度为自动 */
+}
+
+table td {
+    border: 1px solid #dfe2e5;   /* 设置表格数据单元格边框 */
+    margin: 0;                   /* 去除单元格外边距 */
+    padding: 6px 13px;           /* 设置单元格内边距 */
+}
+
+table th:first-child, table td:first-child {
+    margin-top: 0;               /* 去除第一列的上边距 */
+}
+
+table th:last-child, table td:last-child {
+    margin-bottom: 0;            /* 去除最后一列的下边距 */
+}
+
+/* 小屏设备上的样式 (max-width: 767px) */
+@media (max-width: 767px) {
+    .AfruxWidgets-Widget.hotDiscussions-widget {
+        display: none;  /* 隐藏热门讨论部件 */
+    }
+}
+
+/* Hero 组件优化样式 */
+.carousel__slide-title {
+    font-size: 35px !important;   /* 设置轮播标题字体大小 */
+    line-height: 1 !important;    /* 设置行高 */
+}
+
+.carousel__slide-description {
+    margin: 0.4rem auto 0 !important;  /* 设置描述文字上下边距 */
+    line-height: 0.9 !important;       /* 设置行高 */
+}
+
+.carousel__slide-button {
+    border: 3px solid #fff !important;     /* 设置按钮的边框 */
+    border-radius: 8px !important;         /* 设置按钮的圆角 */
+    padding: 0.5rem 1rem !important;       /* 设置按钮的内边距 */
+    text-decoration: none;                 /* 去除按钮文本的下划线 */
+    transition: all .8s cubic-bezier(0, -0.18, 0, 0.92) !important;  /* 设置按钮的过渡效果 */
+    backdrop-filter: blur(10px);           /* 设置背景模糊 */
+}
+
+.carousel {
+    min-height: 35vh !important;  /* 设置轮播图的最小高度 */
+}
+
+.carousel__control {
+    border-radius: 38% !important; /* 设置轮播控制按钮的圆角 */
+    width: 7px !important;         /* 设置控制按钮的宽度 */
+    height: 7px !important;        /* 设置控制按钮的高度 */
+    margin: 0px 15px 0px 0px !important;  /* 设置按钮的外边距 */
+    transition: all .8s cubic-bezier(0, -0.18, 0, 0.92) !important; /* 设置过渡效果 */
+}
+
+/* 个人中心勋章大小修改 */
+.UserCard-info .item-badges .UserBadgeImage {
+    max-width: 6%;  /* 设置勋章图片最大宽度 */
+}
+
+/* 勋章列表的大小修改 */
+.BadgeContainerInfo .UserBadgeImage {
+    max-width: 20%;  /* 设置勋章图片最大宽度 */
+}
+
+/* 个人中心勋章获得列表的大小修改 */
+.UserBadges .UserBadgesCategory .UserBadgeImage {
+    max-width: 6%;  /* 设置勋章图片最大宽度 */
+}
+
+/* 右侧栏去除背景 */
+.AfruxWidgets-Widget-content {
+    background-color: transparent !important;  /* 设置透明背景 */
+}
+
+/* 帖子左上投票图标位置调整 */
+.item-votes .Post-votes {
+    top: 45px;  /* 设置投票图标的顶部偏移 */
+}
+
+/* 博客标题字体大小调整 */
+.BlogFeatured-list-item-details h4 {
+    font-size: 16px !important;  /* 设置博客标题的字体大小 */
+}
+
+/* 个人中心通知中心表格样式 */
+.Settings-notifications table, tr, th, td {
+    all: revert;  /* 清除所有默认样式 */
+}
+
+/* 搜索结果关键字高亮 */
+.DiscussionListItem-main mark {
+    background: #ffff80 !important;  /* 设置高亮背景色 */
+}
+
+/* 文章详情页样式 */
+.Post-body {
+    border-radius: 10px;          /* 设置圆角 */
+    margin-top: 0;                /* 去除顶部间距 */
+    background: #fff;            /* 设置背景为白色 */
+    padding: 20px 20px 50px 20px; /* 设置内边距 */
+    min-height: 80px;            /* 设置最小高度 */
+}
+
+/* 文章评论、操作按钮下方间距 */
+.Post-actions {
+    margin-top: 5px;  /* 设置按钮的上边距 */
+}
+
+/* 文章列表样式 */
+.IndexPage .DiscussionListItem {
+    max-width: 95%;                /* 设置最大宽度 */
+    padding: 0px 0px 0px 25px;    /* 设置内边距 */
+    background: #fafafa;          /* 设置背景颜色 */
+    border-radius: 8px;           /* 设置圆角 */
+    margin: 10px 10px 10px 10px;  /* 设置外边距 */
+    border-bottom: 2px solid rgba(229,229,229,0.7); /* 设置底部边框 */
+}
+
+/* 鼠标悬停时样式 */
+.IndexPage .DiscussionListItem:hover {
+    background-color: #f3f5f9;  /* 设置悬停时背景色 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* 添加悬停时的阴影效果 */
+}
+
+/* 应用内容背景设置 */
+.App-content {
+    background-color: rgba(91,129,179,0); /* 设置透明背景 */
+}
